@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spadra Smelter | Eric Becker — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,900;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&family=DM+Mono:wght@300;400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,900;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&family=DM+Mono:wght@300;400;500&display=swap"></noscript>
+  <style>
+    :root {
+      --paper:#faf8f4;--paper-dark:#f0ede6;--ink:#1a1614;--ink-mid:#4a4340;
+      --ink-light:#8a7f78;--ink-faint:#c5bdb5;--accent:#c17f3a;--accent-dim:#9a6128;
+      --accent-pale:#f5ead8;--rule:#ddd8d0;--green:#2d5a3d;--green-pale:#e8f0eb;
+      --font-disp:'Playfair Display',Georgia,serif;
+      --font-body:'Source Serif 4',Georgia,serif;
+      --font-mono:'DM Mono',monospace;
+      --max-w:800px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{font-size:17px}
+    body{background:var(--paper);color:var(--ink);font-family:var(--font-body);line-height:1.75;-webkit-font-smoothing:antialiased}
+    nav{border-bottom:1px solid var(--rule);padding:.75rem 2rem;display:flex;align-items:center;gap:1.5rem;position:sticky;top:0;background:var(--paper);z-index:100}
+    nav a{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.12em;color:var(--ink-mid);text-decoration:none;transition:.15s}
+    nav a:hover{color:var(--accent)}
+    nav .back{color:var(--ink-light)}
+    nav .spacer{flex:1}
+    .hero{max-width:var(--max-w);margin:0 auto;padding:3.5rem 2rem 2.5rem;border-bottom:2px solid var(--ink)}
+    .hero-eyebrow{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.2em;color:var(--ink-light);margin-bottom:.5rem}
+    .hero h1{font-family:var(--font-disp);font-size:clamp(1.8rem,5vw,3rem);font-weight:900;letter-spacing:-.02em;line-height:1.1;margin-bottom:.5rem}
+    .hero-sub{font-family:var(--font-body);font-size:1rem;color:var(--accent-dim);font-style:italic;font-weight:300;margin-bottom:1.5rem}
+    .hero-badges{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.5rem}
+    .badge{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.1em;padding:.2rem .6rem;border:1px solid}
+    .badge-live{color:var(--green);border-color:var(--green)}
+    .badge-alpha{color:var(--accent-dim);border-color:var(--accent-dim)}
+    .badge-agpl{color:var(--ink-mid);border-color:var(--rule)}
+    .badge-mit{color:var(--ink-mid);border-color:var(--rule)}
+    .hero-links{display:flex;gap:.75rem;flex-wrap:wrap}
+    .btn{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.1em;padding:.4rem 1rem;text-decoration:none;border:1px solid;transition:.15s;display:inline-block}
+    .btn-primary{color:var(--paper);background:var(--ink);border-color:var(--ink)}
+    .btn-primary:hover{background:var(--accent);border-color:var(--accent)}
+    .btn-sec{color:var(--ink-mid);border-color:var(--rule)}
+    .btn-sec:hover{border-color:var(--ink-mid);color:var(--ink)}
+    .body{max-width:var(--max-w);margin:0 auto;padding:0 2rem 6rem}
+    .section{padding-top:3rem}
+    .section-rule{display:flex;align-items:center;gap:1rem;margin-bottom:1.75rem}
+    .section-rule::before{content:'';flex:1;height:1px;background:var(--ink)}
+    .section-label{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.25em;color:var(--ink);white-space:nowrap}
+    p{font-size:.95rem;color:var(--ink-mid);line-height:1.8;margin-bottom:1.1rem}
+    p:last-child{margin-bottom:0}
+    strong{color:var(--ink);font-weight:600}
+    h3{font-family:var(--font-disp);font-size:1.1rem;font-weight:600;color:var(--ink);margin-bottom:.5rem;letter-spacing:-.01em}
+    .problem-block{border-left:3px solid var(--accent);padding:1rem 1.25rem;background:var(--paper-dark);margin:1rem 0}
+    .problem-block-label{font-family:var(--font-mono);font-size:.55rem;letter-spacing:.2em;color:var(--accent-dim);margin-bottom:.4rem}
+    .solution-block{border-left:3px solid var(--green);padding:1rem 1.25rem;background:var(--green-pale);margin:1rem 0}
+    .solution-block-label{font-family:var(--font-mono);font-size:.55rem;letter-spacing:.2em;color:var(--green);margin-bottom:.4rem}
+    .tags{display:flex;flex-wrap:wrap;gap:.35rem;margin:1.25rem 0}
+    .tag{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.08em;color:var(--ink-light);border:1px solid var(--rule);padding:.15rem .5rem;background:var(--paper-dark)}
+    blockquote{border-left:3px solid var(--ink-faint);padding:.75rem 1.25rem;font-style:italic;color:var(--ink-mid);margin:1.5rem 0;font-size:.92rem}
+    footer{border-top:2px solid var(--ink);max-width:var(--max-w);margin:0 auto;padding:1.5rem 2rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+    footer p{font-family:var(--font-mono);font-size:.6rem;color:var(--ink-light)}
+    footer a{color:var(--ink-mid);text-decoration:none}
+    footer a:hover{color:var(--accent)}
+</style>
+
+</head>
+<body>
+<nav>
+  <a href="index.html" class="back">← Portfolio</a>
+  <div class="spacer"></div>
+  <a href="https://fluidfortune.com" target="_blank">fluidfortune.com</a>
+  <a href="https://github.com/FluidFortune" target="_blank">GitHub</a>
+</nav>
+<div class="hero">
+  <div class="hero-eyebrow">RF Intelligence Analysis</div>
+  <h1>Spadra Smelter</h1>
+  <div class="hero-sub">RF intelligence analysis — from raw wardrive data to actionable picture</div>
+  <div class="hero-badges"><span class="badge badge-live">● v1.0.0</span><span class="badge badge-agpl">AGPL-3.0</span></div>
+  <div class="hero-links"><a href="https://spadra-smelter.fluidfortune.com" class="btn btn-primary" target="_blank" rel="noopener">Live Tool</a><a href="https://github.com/FluidFortune/spadra_smelter" class="btn btn-sec" target="_blank" rel="noopener">View on GitHub</a></div>
+</div>
+<div class="body">
+
+  <div class="section">
+    <div class="section-rule"><div class="section-label">What It Is</div></div>
+    <p>Spadra Smelter is a single-file RF intelligence analysis platform for WiGLE-format wardrive datasets — the standard output format of mobile network scanning tools including the T-Deck Plus running Pisces Moon OS. Drop a CSV, receive a full intelligence picture.</p><p>The name is not incidental. Smelting is the process of extracting valuable metal from raw ore. A wardrive CSV is raw ore — thousands of records, most unremarkable, a few significant. Smelter is what turns ore into metal.</p>
+  </div>
+  <div class="section">
+    <div class="section-rule"><div class="section-label">What It Does</div></div>
+    <h3>Interactive Heatmap</h3><p>Density visualization at city and neighborhood zoom levels. Cluster markers for WiFi and BLE devices at mid-zoom. Powered by Leaflet.js with OpenStreetMap tiles — no API key, no external dependency beyond map tiles.</p><h3>Anomaly Detection</h3><p>Mobile hidden networks (high signal strength, no SSID, moving location across sessions). Evil twin candidates (same SSID as common networks with different BSSID). Encryption downgrades (networks previously seen with WPA3 now advertising WPA2). Unusually strong signals at unexpected locations.</p><h3>OUI Vendor Enrichment</h3><p>MAC addresses matched against a built-in vendor table. Identifies device manufacturers — distinguishing consumer devices from enterprise equipment, IoT sensors from mobile phones, known vendor profiles from unknown hardware.</p><h3>Persistent Device Tracking</h3><p>Tracks devices across multiple wardrive sessions. Identifies devices that appear in the same locations across different dates — infrastructure versus transient devices.</p><h3>Export</h3><p>CSV with vendor enrichment data. Printable map view. Plain-text anomaly report.</p>
+  </div>
+  <div class="section">
+    <div class="section-rule"><div class="section-label">Architecture</div></div>
+    <p>One HTML file. No server. No installation. No backend. No API calls except OpenStreetMap tiles. Runs entirely in the browser. Processes CSV data locally — no data transmitted to any server.</p><p>Compatible with any WiGLE-format CSV: WiGLE WiFi Wardriving app, Kismet, NetStumbler exports, and Pisces Moon OS Ghost Engine wardrive output.</p>
+  </div>
+  <div class="section">
+    <div class="section-rule"><div class="section-label">Technical Stack</div></div>
+    <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Leaflet.js</span><span class="tag">OpenStreetMap</span><span class="tag">Papa Parse</span><span class="tag">WiGLE CSV</span><span class="tag">OUI Database</span><span class="tag">Single File</span></div>
+  </div>
+</div>
+<footer>
+  <p>Eric Becker — Fluid Fortune — April 2026</p>
+  <p><a href="index.html">← Portfolio</a> &nbsp;·&nbsp; <a href="https://fluidfortune.com">Main Site</a> &nbsp;·&nbsp; <a href="mailto:forge@fluidfortune.com">forge@fluidfortune.com</a></p>
+</footer>
+</body>
+</html>

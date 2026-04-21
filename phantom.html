@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Phantom | Eric Becker — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,900;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&family=DM+Mono:wght@300;400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,900;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&family=DM+Mono:wght@300;400;500&display=swap"></noscript>
+  <style>
+    :root {
+      --paper:#faf8f4;--paper-dark:#f0ede6;--ink:#1a1614;--ink-mid:#4a4340;
+      --ink-light:#8a7f78;--ink-faint:#c5bdb5;--accent:#c17f3a;--accent-dim:#9a6128;
+      --accent-pale:#f5ead8;--rule:#ddd8d0;--green:#2d5a3d;--green-pale:#e8f0eb;
+      --font-disp:'Playfair Display',Georgia,serif;
+      --font-body:'Source Serif 4',Georgia,serif;
+      --font-mono:'DM Mono',monospace;
+      --max-w:800px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{font-size:17px}
+    body{background:var(--paper);color:var(--ink);font-family:var(--font-body);line-height:1.75;-webkit-font-smoothing:antialiased}
+    nav{border-bottom:1px solid var(--rule);padding:.75rem 2rem;display:flex;align-items:center;gap:1.5rem;position:sticky;top:0;background:var(--paper);z-index:100}
+    nav a{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.12em;color:var(--ink-mid);text-decoration:none;transition:.15s}
+    nav a:hover{color:var(--accent)}
+    nav .back{color:var(--ink-light)}
+    nav .spacer{flex:1}
+    .hero{max-width:var(--max-w);margin:0 auto;padding:3.5rem 2rem 2.5rem;border-bottom:2px solid var(--ink)}
+    .hero-eyebrow{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.2em;color:var(--ink-light);margin-bottom:.5rem}
+    .hero h1{font-family:var(--font-disp);font-size:clamp(1.8rem,5vw,3rem);font-weight:900;letter-spacing:-.02em;line-height:1.1;margin-bottom:.5rem}
+    .hero-sub{font-family:var(--font-body);font-size:1rem;color:var(--accent-dim);font-style:italic;font-weight:300;margin-bottom:1.5rem}
+    .hero-badges{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.5rem}
+    .badge{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.1em;padding:.2rem .6rem;border:1px solid}
+    .badge-live{color:var(--green);border-color:var(--green)}
+    .badge-alpha{color:var(--accent-dim);border-color:var(--accent-dim)}
+    .badge-agpl{color:var(--ink-mid);border-color:var(--rule)}
+    .badge-mit{color:var(--ink-mid);border-color:var(--rule)}
+    .hero-links{display:flex;gap:.75rem;flex-wrap:wrap}
+    .btn{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.1em;padding:.4rem 1rem;text-decoration:none;border:1px solid;transition:.15s;display:inline-block}
+    .btn-primary{color:var(--paper);background:var(--ink);border-color:var(--ink)}
+    .btn-primary:hover{background:var(--accent);border-color:var(--accent)}
+    .btn-sec{color:var(--ink-mid);border-color:var(--rule)}
+    .btn-sec:hover{border-color:var(--ink-mid);color:var(--ink)}
+    .body{max-width:var(--max-w);margin:0 auto;padding:0 2rem 6rem}
+    .section{padding-top:3rem}
+    .section-rule{display:flex;align-items:center;gap:1rem;margin-bottom:1.75rem}
+    .section-rule::before{content:'';flex:1;height:1px;background:var(--ink)}
+    .section-label{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.25em;color:var(--ink);white-space:nowrap}
+    p{font-size:.95rem;color:var(--ink-mid);line-height:1.8;margin-bottom:1.1rem}
+    p:last-child{margin-bottom:0}
+    strong{color:var(--ink);font-weight:600}
+    h3{font-family:var(--font-disp);font-size:1.1rem;font-weight:600;color:var(--ink);margin-bottom:.5rem;letter-spacing:-.01em}
+    .problem-block{border-left:3px solid var(--accent);padding:1rem 1.25rem;background:var(--paper-dark);margin:1rem 0}
+    .problem-block-label{font-family:var(--font-mono);font-size:.55rem;letter-spacing:.2em;color:var(--accent-dim);margin-bottom:.4rem}
+    .solution-block{border-left:3px solid var(--green);padding:1rem 1.25rem;background:var(--green-pale);margin:1rem 0}
+    .solution-block-label{font-family:var(--font-mono);font-size:.55rem;letter-spacing:.2em;color:var(--green);margin-bottom:.4rem}
+    .tags{display:flex;flex-wrap:wrap;gap:.35rem;margin:1.25rem 0}
+    .tag{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.08em;color:var(--ink-light);border:1px solid var(--rule);padding:.15rem .5rem;background:var(--paper-dark)}
+    blockquote{border-left:3px solid var(--ink-faint);padding:.75rem 1.25rem;font-style:italic;color:var(--ink-mid);margin:1.5rem 0;font-size:.92rem}
+    footer{border-top:2px solid var(--ink);max-width:var(--max-w);margin:0 auto;padding:1.5rem 2rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+    footer p{font-family:var(--font-mono);font-size:.6rem;color:var(--ink-light)}
+    footer a{color:var(--ink-mid);text-decoration:none}
+    footer a:hover{color:var(--accent)}
+</style>
+
+</head>
+<body>
+<nav>
+  <a href="index.html" class="back">← Portfolio</a>
+  <div class="spacer"></div>
+  <a href="https://fluidfortune.com" target="_blank">fluidfortune.com</a>
+  <a href="https://github.com/FluidFortune" target="_blank">GitHub</a>
+</nav>
+<div class="hero">
+  <div class="hero-eyebrow">Local AI Agent Framework</div>
+  <h1>The Phantom</h1>
+  <div class="hero-sub">A local AI agent framework — the body the frozen brain never had</div>
+  <div class="hero-badges"><span class="badge badge-alpha">v0.1.0-alpha</span><span class="badge badge-agpl">AGPL-3.0</span></div>
+  <div class="hero-links"><a href="https://github.com/FluidFortune/The-Phantom" class="btn btn-primary" target="_blank" rel="noopener">View on GitHub</a></div>
+</div>
+<div class="body">
+
+  <div class="section">
+    <div class="section-rule"><div class="section-label">What It Is</div></div>
+    <p>Local AI language models are extraordinary reasoning engines. They cannot search the web, remember last Tuesday, fetch a box score, or save a file. They are a genius locked in a room with no windows and no doors — answering questions slipped under the door on pieces of paper.</p><p>The Phantom opens the windows. It is a Python wrapper around Ollama that intercepts every conversation turn, performs whatever research or data retrieval is needed before the model sees the prompt, injects the results as context, and handles all post-processing after the model responds.</p><blockquote>"The model does one thing: it reasons. The Phantom does everything else."</blockquote>
+  </div>
+  <div class="section">
+    <div class="section-rule"><div class="section-label">What It Does — Before the Model Sees Your Prompt</div></div>
+    <p>The Phantom performs all of the following before passing a prompt to the local model:</p><div class="problem-block"><div class="problem-block-label">Web Intelligence</div><p>Scrapes full article content (not snippets) via Trafilatura with BeautifulSoup fallback. Attempts paywall bypass via 12ft.io cascade. DuckDuckGo search returning full article text.</p></div><div class="problem-block"><div class="problem-block-label">Live Data APIs</div><p>MLB Stats API integration (no API key required) for live scores and full season statistics with correct at-bat vs plate appearance distinction. RSS feed reading from configured sources. YouTube transcript fetching without API key.</p></div><div class="problem-block"><div class="problem-block-label">Semantic Memory</div><p>ChromaDB vector database running locally. Every conversation turn stored as a mathematical vector. Before each turn, the five most semantically similar past turns retrieved — not by keyword, but by meaning. How human memory actually works.</p></div><div class="solution-block"><div class="solution-block-label">The Result</div><p>The model reads web content, live data, and relevant past conversations as if it simply knew these things. It did not simply know them. The Phantom knew where to look.</p></div>
+  </div>
+  <div class="section">
+    <div class="section-rule"><div class="section-label">Architecture</div></div>
+    <h3>Tier 1 — Core Agent Engine</h3><p>Connects to any local Ollama model at localhost:11434. Maintains conversation history in JSON. Multi-project isolation with separate history, library, and workspace per project. Identity file system for personality and context definition.</p><h3>Tier 2 — Web Intelligence</h3><p>Two-stage detection: keyword triggers plus LLM self-query ("do I need the web for this?"). Catches queries that keyword matching would miss — "How has Miguel Rojas performed this season?" has no trigger keyword but the model correctly identifies the need.</p><h3>Tier 3 — Background Scout</h3><p>phantom_scout.py runs independently on a schedule, fetches fresh data, asks a local model to write content, renders self-refreshing HTML. Powers phantom.fluidfortune.com — live, AI-written content with no cloud dependency and no ongoing cost.</p><h3>Tier 4 — Vector Memory</h3><p>ChromaDB entirely local. Retrieves by semantic similarity, not keyword match. Auto-distillation keeps 20 most recent turns verbatim, summarizes older turns into memory snapshots. Context window stays sharp indefinitely.</p>
+  </div>
+  <div class="section">
+    <div class="section-rule"><div class="section-label">The Phantom as Ecosystem Core</div></div>
+    <p>The Phantom was originally conceived as a standalone AI assistant. It became Tier 0 of the Pisces Moon ecosystem — the data preparation layer the whole platform was always waiting for. Wardrive CSVs from the T-Deck Plus feed directly into The Phantom's analysis pipeline. The baseball app on the Linux tablet queries The Phantom's MLB endpoint instead of cloud AI. The data formats are the same by design.</p>
+  </div>
+  <div class="section">
+    <div class="section-rule"><div class="section-label">Technical Stack</div></div>
+    <div class="tags"><span class="tag">Python</span><span class="tag">Ollama</span><span class="tag">ChromaDB</span><span class="tag">FastAPI</span><span class="tag">Trafilatura</span><span class="tag">BeautifulSoup</span><span class="tag">DuckDuckGo Search</span><span class="tag">Tailscale</span><span class="tag">DeepSeek</span><span class="tag">Gemma</span><span class="tag">Llama</span><span class="tag">Qwen</span></div>
+  </div>
+</div>
+<footer>
+  <p>Eric Becker — Fluid Fortune — April 2026</p>
+  <p><a href="index.html">← Portfolio</a> &nbsp;·&nbsp; <a href="https://fluidfortune.com">Main Site</a> &nbsp;·&nbsp; <a href="mailto:forge@fluidfortune.com">forge@fluidfortune.com</a></p>
+</footer>
+</body>
+</html>
