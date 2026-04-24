@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trojan Horse | Eric Becker — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,900;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&family=DM+Mono:wght@300;400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,900;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&family=DM+Mono:wght@300;400;500&display=swap"></noscript>
+  <style>
+    :root {
+      --paper:#faf8f4;--paper-dark:#f0ede6;--ink:#1a1614;--ink-mid:#4a4340;
+      --ink-light:#8a7f78;--ink-faint:#c5bdb5;--accent:#c17f3a;--accent-dim:#9a6128;
+      --accent-pale:#f5ead8;--rule:#ddd8d0;--green:#2d5a3d;--green-pale:#e8f0eb;
+      --font-disp:'Playfair Display',Georgia,serif;
+      --font-body:'Source Serif 4',Georgia,serif;
+      --font-mono:'DM Mono',monospace;
+      --max-w:800px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{font-size:17px}
+    body{background:var(--paper);color:var(--ink);font-family:var(--font-body);line-height:1.75;-webkit-font-smoothing:antialiased}
+    nav{border-bottom:1px solid var(--rule);padding:.75rem 2rem;display:flex;align-items:center;gap:1.5rem;position:sticky;top:0;background:var(--paper);z-index:100}
+    nav a{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.12em;color:var(--ink-mid);text-decoration:none;transition:.15s}
+    nav a:hover{color:var(--accent)}
+    nav .back{color:var(--ink-light)}
+    nav .spacer{flex:1}
+    .hero{max-width:var(--max-w);margin:0 auto;padding:3.5rem 2rem 2.5rem;border-bottom:2px solid var(--ink)}
+    .hero-eyebrow{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.2em;color:var(--ink-light);margin-bottom:.5rem}
+    .hero h1{font-family:var(--font-disp);font-size:clamp(1.8rem,5vw,3rem);font-weight:900;letter-spacing:-.02em;line-height:1.1;margin-bottom:.5rem}
+    .hero-sub{font-family:var(--font-body);font-size:1rem;color:var(--accent-dim);font-style:italic;font-weight:300;margin-bottom:1.5rem}
+    .hero-badges{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.5rem}
+    .badge{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.1em;padding:.2rem .6rem;border:1px solid}
+    .badge-live{color:var(--green);border-color:var(--green)}
+    .badge-alpha{color:var(--accent-dim);border-color:var(--accent-dim)}
+    .badge-agpl{color:var(--ink-mid);border-color:var(--rule)}
+    .badge-mit{color:var(--ink-mid);border-color:var(--rule)}
+    .hero-links{display:flex;gap:.75rem;flex-wrap:wrap}
+    .btn{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.1em;padding:.4rem 1rem;text-decoration:none;border:1px solid;transition:.15s;display:inline-block}
+    .btn-primary{color:var(--paper);background:var(--ink);border-color:var(--ink)}
+    .btn-primary:hover{background:var(--accent);border-color:var(--accent)}
+    .btn-sec{color:var(--ink-mid);border-color:var(--rule)}
+    .btn-sec:hover{border-color:var(--ink-mid);color:var(--ink)}
+    .body{max-width:var(--max-w);margin:0 auto;padding:0 2rem 6rem}
+    .section{padding-top:3rem}
+    .section-rule{display:flex;align-items:center;gap:1rem;margin-bottom:1.75rem}
+    .section-rule::before{content:'';flex:1;height:1px;background:var(--ink)}
+    .section-label{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.25em;color:var(--ink);white-space:nowrap}
+    p{font-size:.95rem;color:var(--ink-mid);line-height:1.8;margin-bottom:1.1rem}
+    p:last-child{margin-bottom:0}
+    strong{color:var(--ink);font-weight:600}
+    h3{font-family:var(--font-disp);font-size:1.1rem;font-weight:600;color:var(--ink);margin-bottom:.5rem;letter-spacing:-.01em}
+    .problem-block{border-left:3px solid var(--accent);padding:1rem 1.25rem;background:var(--paper-dark);margin:1rem 0}
+    .problem-block-label{font-family:var(--font-mono);font-size:.55rem;letter-spacing:.2em;color:var(--accent-dim);margin-bottom:.4rem}
+    .solution-block{border-left:3px solid var(--green);padding:1rem 1.25rem;background:var(--green-pale);margin:1rem 0}
+    .solution-block-label{font-family:var(--font-mono);font-size:.55rem;letter-spacing:.2em;color:var(--green);margin-bottom:.4rem}
+    .tags{display:flex;flex-wrap:wrap;gap:.35rem;margin:1.25rem 0}
+    .tag{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.08em;color:var(--ink-light);border:1px solid var(--rule);padding:.15rem .5rem;background:var(--paper-dark)}
+    blockquote{border-left:3px solid var(--ink-faint);padding:.75rem 1.25rem;font-style:italic;color:var(--ink-mid);margin:1.5rem 0;font-size:.92rem}
+    footer{border-top:2px solid var(--ink);max-width:var(--max-w);margin:0 auto;padding:1.5rem 2rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+    footer p{font-family:var(--font-mono);font-size:.6rem;color:var(--ink-light)}
+    footer a{color:var(--ink-mid);text-decoration:none}
+    footer a:hover{color:var(--accent)}
+</style>
+
+</head>
+<body>
+<nav>
+  <a href="index.html" class="back">← Portfolio</a>
+  <div class="spacer"></div>
+  <a href="https://fluidfortune.com" target="_blank">fluidfortune.com</a>
+  <a href="https://github.com/FluidFortune" target="_blank">GitHub</a>
+</nav>
+<div class="hero">
+  <div class="hero-eyebrow">Native Application Infrastructure</div>
+  <h1>Trojan Horse</h1>
+  <div class="hero-sub">Native app wrapper without Electron's 200MB bloat — five platforms, ~500 lines of native code each</div>
+  <div class="hero-badges"><span class="badge badge-alpha">v0.1.0-alpha</span><span class="badge badge-agpl">AGPL-3.0</span></div>
+  <div class="hero-links"><a href="https://github.com/FluidFortune/trojan-horse" class="btn btn-primary" target="_blank" rel="noopener">Live Tool</a><a href="https://github.com/FluidFortune/trojan-horse" class="btn btn-sec" target="_blank" rel="noopener">View on GitHub</a></div>
+</div>
+<div class="body">
+
+  <div class="section">
+    <div class="section-rule"><div class="section-label">The Problem It Solves</div></div>
+    <p>Electron is the dominant framework for shipping cross-platform desktop applications from web code. VS Code is Electron. Slack is Electron. Discord is Electron. Each of them ships a full Chromium browser and a full Node.js runtime with every install. VS Code is 350MB. Slack is 200MB. The application itself is often 10MB. The other 190MB is the runtime tax.</p>
+    <p>Trojan Horse is the answer to that tax. A native shell — ~500 lines per platform — that embeds the operating system's own WebView engine. WKWebView on macOS and iOS. WebKitGTK on Linux. WebView2 on Windows. Android WebView on Android. Every modern operating system already ships a capable web rendering engine. Trojan Horse uses it. The result is a native application that weighs what the application actually weighs.</p>
+    <blockquote>"Your machine, your rules. A Fluid Fortune project."</blockquote>
+  </div>
+
+  <div class="section">
+    <div class="section-rule"><div class="section-label">What It Is</div></div>
+    <p>Trojan Horse is a native application wrapper. Write your application in HTML, CSS, and JavaScript — the same code runs on every platform. The wrapper changes. The application does not. The <code style="font-family:var(--font-mono);font-size:.85em;color:var(--accent-dim)">window.spadra.*</code> bridge is injected before the page loads, giving the web application direct access to native OS capabilities that a browser tab cannot touch.</p>
+    <p>Five platforms are built and working. macOS and iOS in Swift with WKWebView. Linux and Windows in C++17 with WebKitGTK and WebView2 respectively. Android in Kotlin with Android WebView in companion mode. The native code per platform is approximately 500 lines. That is the entire runtime cost.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-rule"><div class="section-label">The Bridge API — window.spadra.*</div></div>
+    <p>The bridge is injected into every page before it loads. Web applications detect it with <code style="font-family:var(--font-mono);font-size:.85em;color:var(--accent-dim)">window.spadra?.isNative</code> and fall back gracefully when running in a regular browser. All bridge methods return Promises.</p>
+    <div class="problem-block"><div class="problem-block-label">Filesystem</div><p><code style="font-family:var(--font-mono);font-size:.82em">readFile(path)</code>, <code style="font-family:var(--font-mono);font-size:.82em">writeFile(path, content)</code>, <code style="font-family:var(--font-mono);font-size:.82em">listDir(path)</code>, <code style="font-family:var(--font-mono);font-size:.82em">deleteFile(path)</code>, <code style="font-family:var(--font-mono);font-size:.82em">mkdir(path)</code>. Direct read/write access to the local filesystem from a web application. No Electron. No Node.js. No file system API workarounds.</p></div>
+    <div class="problem-block"><div class="problem-block-label">Serial Port / Hardware</div><p><code style="font-family:var(--font-mono);font-size:.82em">listPorts()</code>, <code style="font-family:var(--font-mono);font-size:.82em">openSerial(port, baud)</code>, <code style="font-family:var(--font-mono);font-size:.82em">writeSerial(data)</code>, <code style="font-family:var(--font-mono);font-size:.82em">onSerial(callback)</code>. Direct serial port communication with connected hardware — including the LilyGO T-Deck Plus running Pisces Moon OS. A desktop application can talk to the device directly without a backend server or driver installation.</p></div>
+    <div class="problem-block"><div class="problem-block-label">System</div><p><code style="font-family:var(--font-mono);font-size:.82em">notify(title, body)</code>, <code style="font-family:var(--font-mono);font-size:.82em">launchApp(name)</code>, <code style="font-family:var(--font-mono);font-size:.82em">setTitle(title)</code>, <code style="font-family:var(--font-mono);font-size:.82em">appInfo()</code>, <code style="font-family:var(--font-mono);font-size:.82em">exit()</code>. OS notifications, cross-app launching within the Trojan Horse launcher, window title control.</p></div>
+  </div>
+
+  <div class="section">
+    <div class="section-rule"><div class="section-label">Four Included Apps</div></div>
+    <div class="solution-block"><div class="solution-block-label">Home Launcher</div><p>The default app loaded on startup. Reads <code style="font-family:var(--font-mono);font-size:.82em">apps/*/app.json</code> and renders a tile grid. Click a tile to launch any installed app. The app store that doesn't require Apple's approval.</p></div>
+    <div class="solution-block"><div class="solution-block-label">Claude Desktop for Linux</div><p>A native desktop wrapper for claude.ai — because Anthropic doesn't ship a Linux desktop client. Loads claude.ai in WKWebView with persistent login. The wrapper is ~20 lines of app.json configuration. The application is Anthropic's. The wrapper is MIT.</p></div>
+    <div class="solution-block"><div class="solution-block-label">Ghost Partition Manager</div><p>SD card formatter and partition manager for Pisces Moon OS. Creates the dual FAT32 layout with a hidden Ghost Partition accessible to the T-Deck Plus but invisible to consumer operating systems via MBR byte-flip stealth. Uses the serial bridge to communicate directly with the T-Deck Plus over USB. Requires the Python backend for format operations.</p></div>
+    <div class="solution-block"><div class="solution-block-label">Wardrive Splitter</div><p>Splits large WiGLE-format wardrive CSV files into Smelter-ready chunks. Runs entirely in-browser — no backend required. Supports split by row count, date, session, geographic grid, or filter-only mode. Full deduplication and RSSI filtering pipeline. Companion tool to Spadra Smelter.</p></div>
+  </div>
+
+  <div class="section">
+    <div class="section-rule"><div class="section-label">The Ecosystem Connection</div></div>
+    <p>Trojan Horse is the deployment layer for the entire Fluid Fortune ecosystem. Every tool in the stack — Punky, Static, Little Soul, Spadra Smelter, the Threat Model Visualizer — is a single HTML file. Every single HTML file becomes a native desktop application through Trojan Horse without changing a line of code. The bridge API provides the filesystem and hardware access that turns a browser tool into a native tool.</p>
+    <p>The serial port bridge connects directly to the T-Deck Plus running Pisces Moon OS. A Trojan Horse desktop application can read wardrive data from the Ghost Engine in real time, manage the Ghost Partition, push ELF modules to the SD card, and communicate over the LoRa mesh radio — all from a native desktop window, without a server, without a cloud dependency, without a driver installation beyond the USB serial driver the OS already provides.</p>
+    <p>This is the Clark Beddows Protocol expressed as infrastructure. The compute belongs to the person running it. The hardware belongs to the person who bought it. The software belongs to the person who wrote it. Trojan Horse is what connects all three.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-rule"><div class="section-label">Writing Your Own App</div></div>
+    <p>An app is a folder containing an <code style="font-family:var(--font-mono);font-size:.85em;color:var(--accent-dim)">app.json</code> manifest and an <code style="font-family:var(--font-mono);font-size:.85em;color:var(--accent-dim)">index.html</code> file. The manifest specifies the app name, description, icon, version, and accent color. The HTML file is the entire application. Drop the folder into the <code style="font-family:var(--font-mono);font-size:.85em;color:var(--accent-dim)">apps/</code> directory next to the binary. It appears as a tile in the Home launcher on next launch. No recompilation. No registration. No approval.</p>
+    <p>URL-type apps — web wrappers like the Claude desktop app — require only a <code style="font-family:var(--font-mono);font-size:.85em;color:var(--accent-dim)">"url"</code> field in the manifest. The wrapper loads the URL in the native WebView with persistent cookies and login state. Any website becomes a native desktop application in one JSON file.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-rule"><div class="section-label">Technical Stack</div></div>
+    <div class="tags"><span class="tag">Swift</span><span class="tag">C++17</span><span class="tag">Kotlin</span><span class="tag">WKWebView</span><span class="tag">WebKitGTK</span><span class="tag">WebView2</span><span class="tag">Android WebView</span><span class="tag">Serial Port</span><span class="tag">macOS</span><span class="tag">Linux</span><span class="tag">Windows</span><span class="tag">Android</span><span class="tag">iOS</span><span class="tag">AGPL-3.0</span></div>
+    <p>No Electron. No Node.js. No Chromium. No npm. No build pipeline beyond the platform's native compiler. Swift on Apple platforms. g++ or clang++ on Linux and Windows. Gradle on Android. The entire runtime is the operating system's own WebView engine — which ships with the OS and costs nothing in binary size.</p>
+  </div>
+
+</div>
+<footer>
+  <p>Eric Becker — Fluid Fortune — April 2026</p>
+  <p><a href="index.html">← Portfolio</a> &nbsp;·&nbsp; <a href="https://fluidfortune.com">Main Site</a> &nbsp;·&nbsp; <a href="mailto:forge@fluidfortune.com">forge@fluidfortune.com</a></p>
+</footer>
+</body>
+</html>
